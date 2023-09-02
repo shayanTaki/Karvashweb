@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond carwash</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- logo -->
+    <img src="{% static 'assets/images/LOGO.svg' %}" alt="" class="logo">
+
+
+    <!-- website head-->
+    <div class="header">
+        <!-- title -->
+        <h1>رزرو <br>
+            نوبت<br>
+            کارواش
+        </h1>
+        <!-- map -->
+        <img src="{% static 'assets/images/MAP.svg' %}" alt="" >
+    </div>
+
+    <!-- form sec -->
+    <form action="{% url 'AtlasApp' %}" method="post">
+         {% csrf_token %}
+        <!-- personal information section -->
+        <div class="personalInfo-sec">
+            <h3>اطلاعات شخصی</h3>
+            <div class="datacontainer-pi">
+
+                <!-- name input -->
+                <!-- <label for="name">نام کامل</label>
+                <input type="text" id="name" required> -->
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="نام" name="name" id='name' required />
+                    <label for="name" class="form__label">نام کامل</label>
+                </div>
+
+                <!-- telephone number input -->
+                <!-- <label for="number">شماره تلفن همراه</label>
+                <input type="text" id="number" required> -->
+                <div class="form__group field">
+                    <input type="number" class="form__field" placeholder="شماره تلفن" name="number" id=number' required />
+                    <label for="name" class="form__label"> شماره تلفن همراه</label>
+                </div>
+
+                <!-- viechal model input -->
+                <!-- <label for="viechalmodel">مدل ماشین</label>
+                <input type="text" id="viechalmodel" required> -->
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="مدل ماشین" name="vehicle_model" id='number' required />
+                    <label for="name" class="form__label">مدل ماشین</label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Viechal type section-->
+        <div class="ViechalType-sec">
+            <div class="datacontainer-vt">
+                <div class="importcars">
+                    <input type="radio" name="varedati" id="importcars" required>
+                    <label for="importcars">
+                        خودروهای وارداتی<br>
+                        <span>
+                            .ساشی بلند<br>
+                            .سواری
+                        </span>
+                        <h4>250,000 <span>تومان</span></h4>
+                    </label>
+                    
+                </div>
+                <hr>
+                <div class="localcars">
+                    <input type="radio" name="varedati"id="localcars" required>
+                    <label for="localcars">
+                        خودروهای ایرانی و چینی<br>
+                        <span>
+                            .ساشی بلند<br>
+                            .سواری
+                        </span>
+                        <h4>150,000 <span>تومان</span></h4>
+                    </label>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Services section -->
+        <div class="services-sec">
+            <h3>خدمات</h3>
+
+            <div>
+                <input name="sefr-shoii" type="radio" id="services-deepclean">
+                <label for="services-deepclean">
+                    صفرشویی
+                </label>
+            </div>
+
+            <div>
+                <input name="vax" type="radio" id="services-wax">
+                <label for="services-wax">
+                    واکس و پولیش
+                </label>
+            </div>
+        </div>
+
+        <!-- date&time section -->
+        <div class="dateAndTIme-sec">
+
+        <div class="date">
+
+            <label for="month">ماه</label>
+            <select id="month" name="month">
+              <option value="01">فرودین</option>
+              <option value="02">اردیبهشت</option>
+              <option value="03">خرداد</option>
+              <option value="04">تیر</option>
+              <option value="05">مرداد</option>
+              <option value="06">شهریور</option>
+              <option value="07">مهر</option>
+              <option value="08">آبان</option>
+              <option value="09">آذر</option>
+              <option value="10">دی</option>
+              <option value="11">بهمن</option>
+              <option value="12">اسفند</option>
+            </select>
+            
+            <label for="day">روز</label>
+            <select id="day" name="day">
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+        </div>
+
+        <div class="time">
+            <label for="time">نوبت</label>
+            <select id="time" name="time">
+                <option value="01">ساعت  &nbsp; 8:00</option>
+                <option value="02">ساعت  &nbsp; 9:00</option>
+                <option value="03">ساعت  &nbsp; 10:00</option>
+                <option value="04">ساعت  &nbsp; 11:00</option>
+                <option value="05">ساعت  &nbsp; 12:00</option>
+                <option value="06">ساعت  &nbsp; 13:00</option>
+                <option value="07">ساعت  &nbsp; 14:00</option>
+                <option value="08">ساعت  &nbsp; 15:00</option>
+                <option value="09">ساعت  &nbsp; 16:00</option>
+                <option value="10">ساعت  &nbsp; 17:00</option>
+                <option value="11">ساعت  &nbsp; 18:00</option>
+                <option value="12">ساعت  &nbsp; 19:00</option>
+              </select>
+        </div>
+
+        </div>
+
+        <div class="submit">
+            <input type="submit" value="رزرو نوبت">
+        </div>
+    </form>
+{% block body %}
+
+{% endblock %}
+
+</body>
+</html>
